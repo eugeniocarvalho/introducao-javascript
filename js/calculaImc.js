@@ -9,29 +9,36 @@ pacientes.forEach(paciente => {
   const pacienteAltura = paciente.querySelector(".info-altura").textContent;
   const pacienteCampoIMC = paciente.querySelector(".info-imc");
 
-  let pesoValido = true;
-  let alturavalida = true;
+  let pesoValido = validaPeso(pacientePeso);
+  let alturaValida = validaAltura(pacienteAltura);
 
-  if (pacientePeso <= 0 || pacientePeso >= 1000) {
+  if (!pesoValido) {
     pesoValido = false;
     pacienteCampoIMC.textContent = "Peso inválido!";
     paciente.classList.add("paciente-invalido");
   }
 
-  if (pacienteAltura <= 0 || pacienteAltura >= 3.00) {
-    alturavalida = false;
+  if (!alturaValida) {
+    alturaValida = false;
     pacienteCampoIMC.textContent = "Altura inválida!";
-    paciente.style.backgroundColor = "#F37878";
+    paciente.classList.add("paciente-invalido");
   }
 
-  if (pesoValido && alturavalida) {
+  if (pesoValido && alturaValida) {
     const imcCalculado = calculaImc(pacientePeso, pacienteAltura);
     pacienteCampoIMC.textContent = imcCalculado;
   }
 
 });
 
-
 function calculaImc(peso, altura) {
   return (peso / (altura * altura)).toFixed(2);
+}
+
+function validaPeso(pacientePeso) {
+  return pacientePeso > 0 && pacientePeso <= 300;
+}
+
+function validaAltura(pacienteAltura) {
+  return pacienteAltura > 0 && pacienteAltura <= 3.00;
 }

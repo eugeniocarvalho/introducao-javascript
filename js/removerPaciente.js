@@ -3,6 +3,13 @@ const tabela = document.querySelector("table");
 
 
 tabela.addEventListener("click", function(event){
-  if(event.path[0].className.includes("fa-trash-can"))
-    event.path[2].remove();
+  console.log(event.target.className);
+  if(event.target.className.includes("fa-trash-can")) {
+    event.target.parentNode.parentNode.classList.add("fadeOut");
+
+    setTimeout(() => {
+      event.target.parentNode.parentNode.remove();
+
+    }, 500);
+  }
 }) ;

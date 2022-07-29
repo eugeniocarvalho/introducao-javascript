@@ -54,7 +54,7 @@ section h2{
 table{
 	width: 100%;
 	margin-bottom : .5em;
-    table-layout: fixed;
+  table-layout: fixed;
 
 }
 
@@ -150,4 +150,9 @@ button[disabled=disabled], button:disabled {
 	font-size: 1.5rem;
 	display: inline-block;
 	margin-right: 1rem;
+}
+
+.fadeOut {
+	opacity: 0;
+	transition: .5s;
 }

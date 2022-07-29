@@ -1,8 +1,8 @@
 var pacientes = document.querySelectorAll(".icone-deletar");
+const tabela = document.querySelector("table");
 
-pacientes.forEach(paciente => {
-  paciente.addEventListener("click", evento => {
-    console.log(evento);
-    evento.path[2].remove();
-  });
-});
+
+tabela.addEventListener("click", function(event){
+  if(event.path[0].className.includes("fa-trash-can"))
+    event.path[2].remove();
+}) ;

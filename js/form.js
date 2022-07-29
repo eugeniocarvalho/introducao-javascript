@@ -42,6 +42,8 @@ function montaTr(paciente) {
   pacienteTr.appendChild(montaTd(paciente["altura"], "info-altura"));
   pacienteTr.appendChild(montaTd(paciente["gordura"], "info-gordura"));
   pacienteTr.appendChild(montaTd(paciente["imc"], "info-imc"));
+  pacienteTr.appendChild(montaIcone("fa-solid fa-pencil", "icone-editar"));
+  pacienteTr.appendChild(montaIcone("fa-regular fa-trash-can", "icone-deletar"));
 
   return pacienteTr;
 }
@@ -51,6 +53,17 @@ function montaTd(dado, classe) {
 
   td.textContent = dado;
   td.classList.add(classe);
+
+  return td;
+}
+
+function montaIcone(icone, classe) {
+  const i = document.createElement("i");
+  const td = document.createElement("td");
+
+  i.classList.add(icone.split(" ")[0], icone.split(" ")[1]);
+  td.classList.add(classe);
+  td.appendChild(i);
 
   return td;
 }

@@ -1,5 +1,5 @@
 const titulo = document.querySelector('h1');
-const pacientes = document.querySelectorAll(".paciente");
+var pacientes = document.querySelectorAll(".paciente");
 const botaoAdicionarPaciente = document.querySelector("#adicionar-paciente");
 
 titulo.textContent = 'Aparecida Nutricionista';

@@ -3,22 +3,25 @@ botaoAdicionarPaciente.addEventListener("click", event => {
 
   const formularioAdicionaPaciente = document.querySelector("#form-adiciona");
   const pacienteDados = obtemPacienteDoForm(formularioAdicionaPaciente);
-  const tabelaPacientes = document.querySelector("#tabela-pacientes");
-  let pacienteTr = document.createElement("tr");
   let mensagensErro = validaPaciente(pacienteDados);
-  pacienteTr = montaTr(pacienteDados);
 
   if (mensagensErro.length > 0) {
     exibeErros(mensagensErro);
     
     return;
   }
-  else {
-    tabelaPacientes.appendChild(pacienteTr);
-    formularioAdicionaPaciente.reset();
-    atualizaErros();
-  }
+
+  adicionaPacienteTabela(pacienteDados);
+  formularioAdicionaPaciente.reset();
+  atualizaErros();
 });
+
+function adicionaPacienteTabela(paciente) {
+  let pacienteTr = montaTr(paciente);
+  const tabelaPacientes = document.querySelector("#tabela-pacientes");
+  
+  tabelaPacientes.appendChild(pacienteTr);
+}
 
 function obtemPacienteDoForm(form) {
   paciente = {

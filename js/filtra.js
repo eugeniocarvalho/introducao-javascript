@@ -5,9 +5,10 @@ campoFiltro.addEventListener("input", function () {
 
   if (this.value.length > 0) {
     pacientes.forEach(paciente => {
-      const tdNome = paciente.querySelector(".info-nome").textContent.toLowerCase();
-      
-      if (!tdNome.includes(this.value.toLowerCase()))
+      const tdNome = paciente.querySelector(".info-nome").textContent;
+      const expressao = new RegExp(this.value, "i");
+
+      if (!expressao.test(tdNome))
         paciente.classList.add("invisivel");
       else
         paciente.classList.remove("invisivel");

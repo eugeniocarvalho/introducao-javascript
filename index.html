@@ -17,11 +17,45 @@
 		</div>
 	</header>
 	<main>
+
+		<!-- Adicionar paciente -->
+		<section class="container">
+			<h2 id="titulo-form">Adicionar novo paciente</h2>
+			<ul id="mensagens-erro">
+
+			</ul>
+			<form id="form-adiciona">
+				<div class="grupo">
+					<label for="nome">Nome:</label>
+					<input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
+				</div>
+				<div class="grupo">
+					<label for="peso">Peso:</label>
+					<input id="peso" name="peso" type="number" placeholder="digite o peso do seu paciente"
+						class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="altura">Altura:</label>
+					<input id="altura" name="altura" type="number" placeholder="digite a altura do seu paciente"
+						class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="gordura">% de Gordura:</label>
+					<input id="gordura" type="number" placeholder="digite a porcentagem de gordura do seu paciente"
+						class="campo campo-medio">
+				</div>
+
+				<button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+			</form>
+		</section>
+
 		<section class="container">
 			<h2>Meus pacientes</h2>
 
 			<label for="filtrar-tabela"><i class="fa-solid fa-filter"></i> Filtre:</label>
 			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Nome do paciente">
+			<button id="buscar-pacientes" class="botao bto-principal">Buscar pacientes</button>
+
 			<table>
 				<thead>
 					<tr>
@@ -88,41 +122,11 @@
 		</section>
 	</main>
 
-	<!-- Adicionar paciente -->
-	<section class="container">
-		<h2 id="titulo-form">Adicionar novo paciente</h2>
-		<ul id="mensagens-erro">
-
-		</ul>
-		<form id="form-adiciona">
-			<div class="grupo">
-				<label for="nome">Nome:</label>
-				<input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
-			</div>
-			<div class="grupo">
-				<label for="peso">Peso:</label>
-				<input id="peso" name="peso" type="number" placeholder="digite o peso do seu paciente"
-					class="campo campo-medio">
-			</div>
-			<div class="grupo">
-				<label for="altura">Altura:</label>
-				<input id="altura" name="altura" type="number" placeholder="digite a altura do seu paciente"
-					class="campo campo-medio">
-			</div>
-			<div class="grupo">
-				<label for="gordura">% de Gordura:</label>
-				<input id="gordura" type="number" placeholder="digite a porcentagem de gordura do seu paciente"
-					class="campo campo-medio">
-			</div>
-
-			<button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
-		</form>
-	</section>
-
 	<script src="js/calculaImc.js"></script>
 	<script src="js/form.js"></script>
 	<script src="js/removerPaciente.js"></script>
 	<script src="js/filtra.js"></script>
+	<script src="js/buscar-pacientes.js"></script>
 	<script src="https://kit.fontawesome.com/77c7be6730.js" crossorigin="anonymous"></script>
 </body>
 

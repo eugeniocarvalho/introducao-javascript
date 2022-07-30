@@ -1,21 +1,28 @@
 const buscarPacienteBotao = document.querySelector("#buscar-pacientes");
 const urlPacientes = "https://api-pacientes.herokuapp.com/pacientes";
+const erroAjax = document.querySelector("#erro-ajax");
 
 buscarPacienteBotao.addEventListener("click", event => {
   event.preventDefault();
 
-  console.log("Buscando...");
 
   const request = new XMLHttpRequest();
 
   request.open("GET", urlPacientes);
 
-  request.addEventListener("load", function() {
-    pacientes = JSON.parse(request.responseText);
+  request.addEventListener("load", function () {
 
-    pacientes.forEach(paciente => {
-      adicionaPacienteTabela(paciente);
-    });
+    if (request.status === 200) {
+      erroAjax.classList.add("invisivel");
+
+      pacientes = JSON.parse(request.responseText);
+
+      pacientes.forEach(paciente => {
+        adicionaPacienteTabela(paciente);
+      });
+    }
+    else
+      erroAjax.classList.remove("invisivel");
   });
 
   request.send();

@@ -65,6 +65,15 @@ td, th {
 	text-align: center;
 }
 
+.paciente {
+	transition: .3s;
+}
+
+.paciente:hover {
+	background-color: rgb(149, 201, 233);
+	border: 1px solid black;
+}
+
 th{
 	font-weight: bold;
 	background-color: #EEE;
@@ -146,12 +155,12 @@ button[disabled=disabled], button:disabled {
 	background-color: #F37878;
 }
 
-#mensagens-erro {
+#mensagens-erro, #erro-ajax {
 	color: #F37878;
+	font-size: 1.5rem;
 }
 
 .item-erro {
-	font-size: 1.5rem;
 	display: inline-block;
 	margin-right: 1rem;
 }
